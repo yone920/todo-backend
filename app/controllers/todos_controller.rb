@@ -5,6 +5,13 @@ class TodosController < ApplicationController
         render json: categories
     end
 
+    def destroy
+        todo = Todo.find(params[:id].to_i)
+        todo.destroy
+        categories = Category.all
+        render json: categories
+    end
+
     private 
     def todo_params
         params.require(:todo).permit(:text, :category_id)
