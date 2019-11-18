@@ -5,7 +5,6 @@ class CategoriesController < ApplicationController
     end
 
     def create 
-        # byebug
         category = Category.create(category_params)
         categories = Category.all
         render json: categories
